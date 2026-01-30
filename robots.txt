@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://example.com/sitemap.xml
+
+# If you use any staging or test subdomains, disallow them here.
+# Disallow: /staging/
+

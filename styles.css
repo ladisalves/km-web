@@ -1,0 +1,346 @@
+:root {
+  --green-dark: #1c3f1d;
+  --green-fresh: #b1d352;
+  --beige: #f0f0e0;
+  --ink: #151515;
+  --white: #ffffff;
+  --shadow: rgba(28, 63, 29, 0.12);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --content-max: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Google Sans Flex", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(1200px 600px at 10% 10%, #ffffff 0%, #f6f6ea 45%, var(--beige) 100%);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(100% - 32px, var(--content-max));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(240, 240, 224, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(28, 63, 29, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+}
+
+.brand {
+  width: 180px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-nav {
+  display: flex;
+  gap: 20px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--green-fresh);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.hero {
+  padding: 80px 0 90px;
+}
+
+.hero-inner {
+  display: block;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: var(--green-dark);
+  margin: 0 0 12px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "The Seasons", "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  max-width: 36rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--green-dark);
+  color: var(--white);
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px var(--shadow);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--green-dark);
+  border-color: rgba(28, 63, 29, 0.3);
+  box-shadow: none;
+}
+
+.hero-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 18px 40px rgba(28, 63, 29, 0.15);
+  position: relative;
+  overflow: hidden;
+  margin-top: 28px;
+}
+
+.card-accent {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 280px;
+  background: linear-gradient(to left, var(--green-fresh) 0%, transparent 100%);
+  opacity: 0.8;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-title {
+  font-family: "The Seasons", "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+}
+
+.card-text {
+  margin: 0 0 16px;
+}
+
+.hero-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--green-dark);
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.about-grid {
+  display: grid;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px rgba(28, 63, 29, 0.08);
+}
+
+.services {
+  position: relative;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(177, 211, 82, 0.18), transparent 40%);
+  z-index: 0;
+}
+
+.services > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.service-card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 24px rgba(28, 63, 29, 0.1);
+}
+
+.services-note {
+  margin-top: 22px;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
+.contact {
+  background: var(--green-dark);
+  color: var(--white);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: center;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-note {
+  margin-top: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.site-footer {
+  background: var(--beige);
+  border-top: 1px solid rgba(28, 63, 29, 0.1);
+  padding: 26px 0;
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Responsive hero: side-by-side on desktop, stacked on mobile */
+.hero-text {
+  /* default: stacked for mobile */
+  display: block;
+}
+
+@media (min-width: 880px) {
+  .hero-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .hero-text > .eyebrow,
+  .hero-text > h1 {
+    grid-column: 1 / -1;
+  }
+
+  .leadWrapper {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-card {
+    grid-column: 2;
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-nav {
+    display: none;
+  }
+
+  .header-inner {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
